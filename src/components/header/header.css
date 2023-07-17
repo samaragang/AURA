@@ -1,0 +1,32 @@
+.header__inner {
+  min-height: 80px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 100px auto 132px;
+}
+
+.header__nav {
+  display: flex;
+  column-gap: 32px;
+  margin-left: 64px;
+}
+
+.nav__item a {
+  font-family: 'Muller';
+  font-size: 20px;
+  line-height: normal;
+}
+
+.header__wallet-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.header__wallet-btn button {
+  padding: 17px 32px;
+  background-color: var(--black);
+  border-radius: 77px;
+  font-size: 16px;
+  line-height: normal;
+  color: white;
+}

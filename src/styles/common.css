@@ -1,0 +1,37 @@
+:root {
+  --black: #07060B;
+  --red: #D13130;
+  --button-cta: linear-gradient(180deg, #46F4DB 27.08%, #57D272 100%);
+}
+
+
+@font-face {
+  font-family: 'Russo One';
+  src: url('src/fonts/RussoOneRegular.woff') format('truetype');
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url('src/fonts/MullerRegular.woff2') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url('src/fonts/MullerBold.woff2') format('truetype');
+  font-weight: 700;
+}
+
+
+body,
+a,
+button {
+  font-family: 'Muller', sans-serif;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}

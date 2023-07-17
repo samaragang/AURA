@@ -1,0 +1,52 @@
+.intro {
+  max-height: 680px;
+  padding: 160px 0;
+  background-color: var(--black);
+  background-image: url(./../../images/img/intro-bg.png);
+  background-repeat: no-repeat;
+  background-position: right;
+
+}
+
+.intro__title {
+  max-width: 620px;
+  font-family: 'Russo One', sans-serif;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: normal;
+  color: white;
+  margin-bottom: 36px;
+}
+
+.intro__btns {
+  display: flex;
+  align-items: center;
+  column-gap: 32px;
+}
+
+.buy-btn,
+.author-btn span {
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.buy-btn {
+  padding: 25px 54px;
+  border-radius: 40px;
+  background: var(--button-cta);
+}
+
+.author-btn {
+  border-radius: 40px;
+  position: relative;
+}
+
+.author-btn span {
+  color: white;
+  white-space: nowrap;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-51%);
+}
