@@ -8,7 +8,7 @@ const Countdown = () => {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const endTime = new Date('2023-07-18T00:00:00').getTime();
+    const endTime = new Date('2023-07-19T00:00:00').getTime();
 
     const interval = setInterval(() => {
       const currentTime = new Date().getTime();
@@ -33,8 +33,7 @@ const Countdown = () => {
   }, []);
 
   return (
-    <div className="bet__countdown">
-      Окончание через:
+    <div>
       <div className="time">{hours.toString().padStart(2, '0')}</div>
       <div className="label">Час</div>
 

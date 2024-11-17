@@ -1,6 +1,9 @@
 import React from 'react';
 import './auction.css'
 import Countdown from './countdown/Countdown';
+import auctionStickerImg from './../../images/auction-stickers/Witcher-3.svg'
+import auctionAuthorsImg from './../../images/auction-authors/serge_vm222.jpg'
+
 
 const Auction = () => {
   const [countCripto, setCountCripto] = React.useState(1);
@@ -15,14 +18,20 @@ const Auction = () => {
         <div className="auction__inner">
           <div className="auction__header">
             <h1 className="section__title">Аукцион</h1>
-            <div className="live-marker">Live auction</div>
+            <div className="live-marker"><span>•</span> Live auction</div>
           </div>
           <div className="auction__main">
             <div className="auction__image">
-              <img src="" alt="" />
+              <img src={auctionStickerImg} alt="" />
             </div>
             <div className="auction__info">
-              <div className="auction__author">Serge_VM222</div>
+              <div className="auction__author">
+                <div className="circle__author-img">
+
+                  <img src={auctionAuthorsImg} alt="" />
+                </div>
+                Serge_VM222
+              </div>
               <div className="auction__info-title">Witcherrr_3 (xml_t5)</div>
               <div className="auction__bet">
                 <div className="bet__price">
@@ -30,7 +39,10 @@ const Auction = () => {
                   <div className="price-cripto">{countCripto / 100} ETH</div>
                   <div className="price-usd">${countUsd / 1000}</div>
                 </div>
-                <Countdown />
+                <div className="bet__countdown">
+                  Окончание через:
+                  <Countdown />
+                </div>
                 <div className="bet__button">
                   <button onClick={onClickDep}>Cделать ставку</button>
                 </div>
@@ -39,7 +51,7 @@ const Auction = () => {
           </div>
           <div className="auction__list">
             <h3 className="section__subtitle">Другие аукционы</h3>
-            <Card />
+            {/* <Card /> */}
           </div>
         </div>
       </div>
