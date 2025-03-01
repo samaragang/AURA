@@ -8,7 +8,7 @@ const Countdown = () => {
   const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
-    const endTime = new Date('2023-07-19T00:00:00').getTime();
+    const endTime = new Date().getTime() + 5000000;
 
     const interval = setInterval(() => {
       const currentTime = new Date().getTime();
@@ -33,15 +33,19 @@ const Countdown = () => {
   }, []);
 
   return (
-    <div>
-      <div className="time">{hours.toString().padStart(2, '0')}</div>
-      <div className="label">Час</div>
-
-      <div className="time">{minutes.toString().padStart(2, '0')}</div>
-      <div className="label">Мин</div>
-
-      <div className="time">{seconds.toString().padStart(2, '0')}</div>
-      <div className="label">Сек</div>
+    <div className='countdown'>
+      <div className='countdown-item'>
+        <div className="time">{hours.toString().padStart(2, '0')}</div>
+        <div className="label">Час</div>
+      </div>
+      <div className='countdown-item'>
+        <div className="time">{minutes.toString().padStart(2, '0')}</div>
+        <div className="label">Мин</div>
+      </div>
+      <div className='countdown-item'>
+        <div className="time">{seconds.toString().padStart(2, '0')}</div>
+        <div className="label">Сек</div>
+      </div>
     </div>
   );
 };

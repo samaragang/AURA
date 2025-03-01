@@ -67,6 +67,10 @@
 }
 
 .auction__bet {
+  display: grid;
+  grid-template-columns: 296px 460px;
+  grid-template-rows: 174px 70px;
+  gap: 32px;
   font-size: 20px;
 }
 
@@ -91,7 +95,15 @@
   color: #95959D;
 }
 
-.bet__button {}
+.bet__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #46F4DB;
+  border-radius: 40px;
+  font-size: 20px;
+  font-weight: 700;
+}
 
 
 .bet__countdown,
@@ -102,10 +114,28 @@
 }
 
 .bet__countdown{
-  display: flex;
+  display: grid;
+  grid-template-columns: 231px 102px;
+  grid-template-rows: 20px 74px;
+  grid-column-gap: 44px;
+  grid-row-gap: 16px;
   padding: 32px;
   border-radius: 40px;
   background-color: var(--black);
+}
+.bet__countdown-title{
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.bet__countdown-content {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.bet__countdown-image {
+  max-width: 121px;
+  max-height: 121px;
+  margin-top: -5px;
+  grid-area: 1 / 2 / 3 / 3;
 }
 
 .time {

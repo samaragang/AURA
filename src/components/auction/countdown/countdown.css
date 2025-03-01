@@ -1,0 +1,13 @@
+.countdown {
+  display: flex;
+  column-gap: 26px;
+}
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 5px;
+}
+.time {
+  width: 57px;
+}

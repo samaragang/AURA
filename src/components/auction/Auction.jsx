@@ -3,6 +3,7 @@ import './auction.css'
 import Countdown from './countdown/Countdown';
 import auctionStickerImg from './../../images/auction-stickers/Witcher-3.svg'
 import auctionAuthorsImg from './../../images/auction-authors/serge_vm222.jpg'
+import auctionCountdownImg from './../../images/icons/alarm-clock.svg'
 
 
 const Auction = () => {
@@ -40,12 +41,11 @@ const Auction = () => {
                   <div className="price-usd">${countUsd / 1000}</div>
                 </div>
                 <div className="bet__countdown">
-                  Окончание через:
-                  <Countdown />
+                  <div className='bet__countdown-title'>Окончание через:</div>
+                  <Countdown className='bet__countdown-content' />
+                  <img className='bet__countdown-image' src={auctionCountdownImg} alt="alarm" />
                 </div>
-                <div className="bet__button">
-                  <button onClick={onClickDep}>Cделать ставку</button>
-                </div>
+                <button className="bet__button" onClick={onClickDep}>Cделать ставку</button>
               </div>
             </div>
           </div>
