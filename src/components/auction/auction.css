@@ -34,6 +34,7 @@
 .auction__main {
   display: flex;
   column-gap: 32px;
+  margin-bottom: 90px;
 }
 
 .auction__image {
@@ -113,7 +114,7 @@
   font-size: 20px;
 }
 
-.bet__countdown{
+.bet__countdown {
   display: grid;
   grid-template-columns: 231px 102px;
   grid-template-rows: 20px 74px;
@@ -123,7 +124,8 @@
   border-radius: 40px;
   background-color: var(--black);
 }
-.bet__countdown-title{
+
+.bet__countdown-title {
   grid-area: 1 / 1 / 2 / 2;
 }
 
@@ -142,8 +144,31 @@
   font-size: 48px;
 }
 
+.auction__list {
+  margin-bottom: 90px;
+}
 
+.section__subtitle {
+  font-size: 20px;
+  margin-bottom: 32px;
+}
 
-.auction__list {}
+.auction__list-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 32px;
+}
 
-.section__subtitle {}
+.auction__list-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auction__list-btn button {
+  font-size: 20px;
+  padding: 25px 90px;
+  border: #46F4DB 5px solid;
+  border-radius: 50px;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import './auction.css'
 import Countdown from './countdown/Countdown';
+import Card from './card/Card';
 import auctionStickerImg from './../../images/auction-stickers/Witcher-3.svg'
 import auctionAuthorsImg from './../../images/auction-authors/serge_vm222.jpg'
 import auctionCountdownImg from './../../images/icons/alarm-clock.svg'
@@ -23,12 +24,11 @@ const Auction = () => {
           </div>
           <div className="auction__main">
             <div className="auction__image">
-              <img src={auctionStickerImg} alt="" />
+              <img src={auctionStickerImg} alt="item" />
             </div>
             <div className="auction__info">
               <div className="auction__author">
                 <div className="circle__author-img">
-
                   <img src={auctionAuthorsImg} alt="" />
                 </div>
                 Serge_VM222
@@ -51,7 +51,19 @@ const Auction = () => {
           </div>
           <div className="auction__list">
             <h3 className="section__subtitle">Другие аукционы</h3>
-            {/* <Card /> */}
+            <div className='auction__list-content'>
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+            </div>
+            <div className='auction__list-btn'>
+              <button>Все аукционы</button>
+            </div>
           </div>
         </div>
       </div>
