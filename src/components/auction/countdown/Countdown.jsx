@@ -1,51 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import './countdown.css'
+import React, { useEffect, useReducer, useRef } from 'react';
+import './countdown.css';
 
+const calculateTimeLeft = (endTime) => {
+  const now = Date.now();
+  const difference = endTime - now;
 
-const Countdown = () => {
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
+  const expired = difference <= 0;
+
+  return {
+    hours: expired ? 0 : Math.floor((difference / (1000 * 60 * 60)) % 24),
+    minutes: expired ? 0 : Math.floor((difference / (1000 * 60)) % 60),
+    seconds: expired ? 0 : Math.floor((difference / 1000) % 60),
+    expired,
+  };
+};
+
+const countdownReducer = (state, action) => {
+  switch (action.type) {
+    case 'TICK':
+      return calculateTimeLeft(action.endTime);
+    default:
+      return state;
+  }
+};
+
+const CountdownItem = ({ value, label }) => (
+  <div className="countdown-item">
+    <div className="time">{value.toString().padStart(2, '0')}</div>
+    <div className="label">{label}</div>
+  </div>
+);
+
+const Countdown = ({ duration = 5000000 }) => {
+  const endTimeRef = useRef(Date.now() + duration);
+  const [timeLeft, dispatch] = useReducer(
+    countdownReducer,
+    calculateTimeLeft(endTimeRef.current)
+  );
 
   useEffect(() => {
-    const endTime = new Date().getTime() + 5000000;
-
     const interval = setInterval(() => {
-      const currentTime = new Date().getTime();
-      const timeDifference = endTime - currentTime;
-
-      const hoursRemaining = Math.floor(timeDifference / (1000 * 60 * 60));
-      const minutesRemaining = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-      const secondsRemaining = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-      setHours(hoursRemaining);
-      setMinutes(minutesRemaining);
-      setSeconds(secondsRemaining);
-
-      if (timeDifference <= 0) {
-        clearInterval(interval);
-      }
+      dispatch({ type: 'TICK', endTime: endTimeRef.current });
     }, 1000);
 
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className='countdown'>
-      <div className='countdown-item'>
-        <div className="time">{hours.toString().padStart(2, '0')}</div>
-        <div className="label">Час</div>
-      </div>
-      <div className='countdown-item'>
-        <div className="time">{minutes.toString().padStart(2, '0')}</div>
-        <div className="label">Мин</div>
-      </div>
-      <div className='countdown-item'>
-        <div className="time">{seconds.toString().padStart(2, '0')}</div>
-        <div className="label">Сек</div>
-      </div>
+    <div className="countdown">
+      {timeLeft.expired ? (
+        <div className="countdown-expired">Время вышло!</div>
+      ) : (
+        <>
+          <CountdownItem value={timeLeft.hours} label="Час" />
+          <CountdownItem value={timeLeft.minutes} label="Мин" />
+          <CountdownItem value={timeLeft.seconds} label="Сек" />
+        </>
+      )}
     </div>
   );
 };
