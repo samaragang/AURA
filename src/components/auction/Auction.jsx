@@ -1,10 +1,11 @@
 import React from 'react';
-import './auction.css'
+import './auction.css';
 import Countdown from './countdown/Countdown';
 import Card from './card/Card';
-import auctionStickerImg from './../../images/auction-stickers/Witcher-3.svg'
-import auctionAuthorsImg from './../../images/auction-authors/serge_vm222.jpg'
-import auctionCountdownImg from './../../images/icons/alarm-clock.svg'
+import CustomButton from './../ui/CustomButton';
+import auctionStickerImg from './../../images/auction-stickers/Witcher-3.svg';
+import auctionAuthorsImg from './../../images/auction-authors/serge_vm222.jpg';
+import auctionCountdownImg from './../../images/icons/alarm-clock.svg';
 
 
 const Auction = () => {
@@ -19,8 +20,12 @@ const Auction = () => {
       <div className="container">
         <div className="auction__inner">
           <div className="auction__header">
-            <h1 className="section__title">Аукцион</h1>
-            <div className="live-marker"><span>•</span> Live auction</div>
+            <h1 className="section__title">
+              Аукцион
+            </h1>
+            <div className="live-marker">
+              <span>•</span> Live auction
+            </div>
           </div>
           <div className="auction__main">
             <div className="auction__image">
@@ -41,11 +46,15 @@ const Auction = () => {
                   <div className="price-usd">${countUsd / 1000}</div>
                 </div>
                 <div className="bet__countdown">
-                  <div className='bet__countdown-title'>Окончание через:</div>
+                  <div className='bet__countdown-title'>
+                    Окончание через:
+                  </div>
                   <Countdown className='bet__countdown-content' />
                   <img className='bet__countdown-image' src={auctionCountdownImg} alt="alarm" />
                 </div>
-                <button className="bet__button" onClick={onClickDep}>Cделать ставку</button>
+                <CustomButton onClick={onClickDep}>
+                  Сделать ставку
+                </CustomButton>
               </div>
             </div>
           </div>
