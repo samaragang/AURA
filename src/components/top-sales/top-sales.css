@@ -1,0 +1,51 @@
+.top-sales {
+  background-color: black;
+  padding: 90px 0;
+}
+
+.top-sales__title {
+  color: white;
+  font-size: 60px;
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.top-sales__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.top-sales__rules {
+  background-color: #37373E;
+  padding: 32px 0;
+  color: white;
+  font-family: 'Muller';
+}
+
+.top-sales__rules-inner {
+  background-image: url('./../../images/img/top-sales-bg.png');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 36px) center;
+}
+
+.top-sales__rules-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.top-sales__rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.rules-list__item {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

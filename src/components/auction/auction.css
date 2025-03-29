@@ -58,8 +58,6 @@
   background: var(--grey-light, #EDEDF2);
 }
 
-
-
 .auction__info-title {
   font-size: 48px;
   font-weight: 400;
@@ -140,10 +138,6 @@
 
 .time {
   font-size: 48px;
-}
-
-.auction__list {
-  margin-bottom: 90px;
 }
 
 .section__subtitle {

@@ -1,0 +1,26 @@
+.footer {
+  background-color: #46F4DB;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.footer__nav {
+  display: flex;
+  gap: 32px;
+}
+
+.footer-tag {
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 8px 0;
+  font-family: 'Muller';
+  font-size: 12px;
+  font-weight: 400;
+}

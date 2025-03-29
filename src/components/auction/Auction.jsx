@@ -12,6 +12,7 @@ import cardAuthorImg from '../../images/auction-authors/serge_vm222.jpg';
 const Auction = () => {
   const [countCripto, setCountCripto] = useState(1);
   const [countUsd, setCountUsd] = useState(3512);
+  const cards = [1, 2, 3, 4, 5, 6, 7, 8]
 
   const onClickDep = useCallback(() => {
     setCountCripto((prev) => prev + 1);
@@ -68,14 +69,18 @@ const Auction = () => {
           <div className="auction__list">
             <h3 className="section__subtitle">Другие аукционы</h3>
             <div className="auction__list-content">
-              <Card
-                image={cardStickerImg}
-                authorImage={cardAuthorImg}
-                authorName="Frank Nagval"
-                name="Alien (green) e_e"
-                price="0.02 ETH"
-                time="03 часа 25 мин 23 сек"
-              />
+              {cards.map((i) => {
+                return <Card
+                  image={cardStickerImg}
+                  authorImage={cardAuthorImg}
+                  authorName="Frank Nagval"
+                  name="Alien (green) e_e"
+                  price="0.02 ETH"
+                  time="03 часа 25 мин 23 сек"
+                  key={i}
+                />
+              })
+              }
             </div>
             <div className="auction__list-btn">
               <button>Все аукционы</button>

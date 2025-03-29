@@ -1,0 +1,44 @@
+.top-sales__item {
+  width: 624px;
+  height: 174px;
+  display: flex;
+  background-color: white;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.top-sales__item-image {
+  width: 142px;
+  background-color: #EDEDF2;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.top-sales__item-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px;
+}
+
+.item-content__author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item-content__author-name {
+  font-size: 16px;
+}
+
+.item-content__name {
+  font-size: 48px;
+}
+
+.item-content__price {
+  font-size: 20px;
+}
+.item-content__price span {
+  color: #717178;
+}
