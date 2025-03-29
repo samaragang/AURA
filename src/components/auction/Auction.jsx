@@ -6,7 +6,8 @@ import CustomButton from './../ui/CustomButton';
 import auctionStickerImg from './../../images/auction-stickers/Witcher-3.svg';
 import auctionAuthorsImg from './../../images/auction-authors/serge_vm222.jpg';
 import auctionCountdownImg from './../../images/icons/alarm-clock.svg';
-
+import cardStickerImg from '../../images/auction-stickers/Alien-2x.svg';
+import cardAuthorImg from '../../images/auction-authors/serge_vm222.jpg';
 
 const Auction = () => {
   const [countCripto, setCountCripto] = React.useState(1);
@@ -61,14 +62,14 @@ const Auction = () => {
           <div className="auction__list">
             <h3 className="section__subtitle">Другие аукционы</h3>
             <div className='auction__list-content'>
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+              <Card
+                image={cardStickerImg}
+                authorImage={cardAuthorImg}
+                authorName="Frank Nagval"
+                name="Alien (green) e_e"
+                price="0.02 ETH"
+                time="03 часа 25 мин 23 сек"
+              />
             </div>
             <div className='auction__list-btn'>
               <button>Все аукционы</button>
