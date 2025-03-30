@@ -1,26 +1,43 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import './auction.css';
 import Countdown from './countdown/Countdown';
 import Card from './card/Card';
 import CustomButton from './../ui/CustomButton';
-import auctionStickerImg from './../../images/auction-stickers/Witcher-3.svg';
-import auctionAuthorsImg from './../../images/auction-authors/serge_vm222.jpg';
-import auctionCountdownImg from './../../images/icons/alarm-clock.svg';
-import cardStickerImg from '../../images/auction-stickers/Alien-2x.svg';
-import cardAuthorImg from '../../images/auction-authors/serge_vm222.jpg';
+import auctionCountdownImg from '/public/images/icons/alarm-clock.svg';
+import { getAuctionData } from '/server-data';
 
 const Auction = () => {
-  const [countCripto, setCountCripto] = useState(1);
-  const [countUsd, setCountUsd] = useState(3512);
-  const cards = [1, 2, 3, 4, 5, 6, 7, 8]
+  const [selectedCardIndex, setSelectedCardIndex] = useState(0);
+  const [auctions, setAuctions] = useState([]);
+  const [bets, setBets] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const onClickDep = useCallback(() => {
-    setCountCripto((prev) => prev + 1);
-    setCountUsd((prev) => prev + 3512);
+  useEffect(() => {
+    getAuctionData().then(data => {
+      setAuctions(data);
+      setBets(data.map(item => +item.bet));
+      setLoading(false);
+    });
   }, []);
 
-  const eth = useMemo(() => (countCripto / 100).toFixed(2), [countCripto]);
-  const usd = useMemo(() => (countUsd / 100).toLocaleString(), [countUsd]);
+  const handleBid = useCallback(() => {
+    setBets(prev => {
+      const updated = [...prev];
+      updated[selectedCardIndex] = (+updated[selectedCardIndex] + 0.01).toFixed(2);
+      return updated;
+    });
+  }, [selectedCardIndex]);
+
+  const handleCardSelect = (index) => {
+    setSelectedCardIndex(index);
+  };
+
+  const currentAuction = auctions[selectedCardIndex];
+  const currentBet = bets[selectedCardIndex];
+
+  if (loading) {
+    return <div className="auction__loading">Загрузка аукционов...</div>;
+  }
 
   return (
     <section className="auction">
@@ -32,55 +49,60 @@ const Auction = () => {
               <span>•</span> Live auction
             </div>
           </div>
+
           <div className="auction__main">
             <div className="auction__image">
-              <img src={auctionStickerImg} alt="item" />
+              <img
+                src={`images/auction-stickers/${currentAuction.name}.png`}
+                alt={currentAuction.name}
+              />
             </div>
             <div className="auction__info">
               <div className="auction__author">
                 <div className="circle__author-img">
-                  <img src={auctionAuthorsImg} alt="author" />
+                  <img
+                    src={`images/auction-authors/${currentAuction.author}.jpg`}
+                    alt={currentAuction.author}
+                  />
                 </div>
-                Serge_VM222
+                {currentAuction.author}
               </div>
-              <div className="auction__info-title">Witcherrr_3 (xml_t5)</div>
+              <div className="auction__info-title">{currentAuction.name}</div>
               <div className="auction__bet">
                 <div className="bet__price">
                   Ставка:
-                  <div className="price-cripto">{eth} ETH</div>
-                  <div className="price-usd">${usd}</div>
+                  <div className="price-cripto">{currentBet} ETH</div>
+                  <div className="price-usd">${(currentBet * 3512).toLocaleString()}</div>
                 </div>
                 <div className="bet__countdown">
                   <div className="bet__countdown-title">Окончание через:</div>
-                  <Countdown className="bet__countdown-content" />
+                  <Countdown duration={currentAuction.timer} />
                   <img
                     className="bet__countdown-image"
                     src={auctionCountdownImg}
-                    alt="alarm"
+                    alt="Секундомер"
                   />
                 </div>
-
-                <CustomButton onClick={onClickDep}>
-                  Сделать ставку
-                </CustomButton>
+                <CustomButton onClick={handleBid}>Сделать ставку</CustomButton>
               </div>
             </div>
           </div>
+
           <div className="auction__list">
             <h3 className="section__subtitle">Другие аукционы</h3>
             <div className="auction__list-content">
-              {cards.map((i) => {
-                return <Card
-                  image={cardStickerImg}
-                  authorImage={cardAuthorImg}
-                  authorName="Frank Nagval"
-                  name="Alien (green) e_e"
-                  price="0.02 ETH"
-                  time="03 часа 25 мин 23 сек"
-                  key={i}
-                />
-              })
-              }
+              {auctions.map((item, index) =>
+                index !== selectedCardIndex ? (
+                  <Card
+                    key={index}
+                    onClick={() => handleCardSelect(index)}
+                    authorName={item.author}
+                    name={item.name}
+                    price={`${bets[index]} ETH`}
+                    time={item.timer}
+                  />
+                ) : null
+              )}
             </div>
             <div className="auction__list-btn">
               <button>Все аукционы</button>

@@ -1,5 +1,5 @@
 import "./intro.css"
-import btnBorder from "./../../images/icons/btn-border.svg"
+import btnBorder from "/public/images/icons/btn-border.svg"
 const Intro = () => {
   return (
     <section className="intro">

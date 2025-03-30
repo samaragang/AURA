@@ -7,18 +7,18 @@
 
 @font-face {
   font-family: 'Russo One';
-  src: url('src/fonts/RussoOneRegular.woff') format('truetype');
+  src: url('/public/fonts/RussoOneRegular.woff') format('truetype');
 }
 
 @font-face {
   font-family: 'Muller';
-  src: url('src/fonts/MullerRegular.woff2') format('truetype');
+  src: url('/public/fonts/MullerRegular.woff2') format('truetype');
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Muller';
-  src: url('src/fonts/MullerBold.woff2') format('truetype');
+  src: url('/public/fonts/MullerBold.woff2') format('truetype');
   font-weight: 700;
 }
 

@@ -1,11 +1,6 @@
 import React from 'react';
 import './top-sales.css'
 import TopSalesCard from './top-sales-card/TopSalesCard';
-import TopAuthor from './../../images/top-author/ttgs.png';
-import TopSticker from './../../images/top-stickers/Holofobia1.svg';
-import RuleOne from './../../images/icons/top-sales-rules-1.svg';
-import RuleTwo from './../../images/icons/top-sales-rules-2.svg';
-import RuleThree from './../../images/icons/top-sales-rules-3.svg';
 
 const TopSales = () => {
   const cards = [1, 2, 3, 4, 5, 6]
@@ -20,8 +15,8 @@ const TopSales = () => {
             <div className="top-sales__content">
               {cards.map((i) => {
                 return (<TopSalesCard
-                  topAuthor={TopAuthor}
-                  topSticker={TopSticker}
+                  topAuthor={'images/top-author/ttgs.png'}
+                  topSticker={'images/top-stickers/Holofobia1.svg'}
                   key={i}
                 />)
               })}
@@ -37,15 +32,15 @@ const TopSales = () => {
             </div>
             <ul className='top-sales__rules-list'>
               <li className='rules-list__item'>
-                <img src={RuleOne} alt="icon" />
+                <img src={'images/icons/top-sales-rules-1.svg'} alt="icon" />
                 Минимум пять опубликованных работ
               </li>
               <li className='rules-list__item'>
-                <img src={RuleTwo} alt="icon" />
+                <img src={'images/icons/top-sales-rules-2.svg'} alt="icon" />
                 Инвайт трём коллегам по цеху
               </li>
               <li className='rules-list__item'>
-                <img src={RuleThree} alt="icon" />
+                <img src={'images/icons/top-sales-rules-3.svg'} alt="icon" />
                 Верифицированный аккаунт
               </li>
             </ul>

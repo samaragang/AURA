@@ -1,5 +1,4 @@
 import React from 'react'
-import logoImg from './../../images/icons/logo.svg'
 import './footer.css'
 
 const Footer = () => {
@@ -9,7 +8,7 @@ const Footer = () => {
         <div className='footer-content'>
           <div className="footer__logo">
             <a href="/">
-              <img src={logoImg} alt="logo" />
+              <img src={'images/icons/logo.svg'} alt="logo" />
             </a>
           </div>
           <div className="footer__nav">

@@ -19,24 +19,31 @@ const countdownReducer = (state, action) => {
   switch (action.type) {
     case 'TICK':
       return calculateTimeLeft(action.endTime);
+    case 'RESET':
+      return calculateTimeLeft(action.endTime);
     default:
       return state;
   }
 };
 
-const CountdownItem = ({ value, label }) => (
-  <div className="countdown-item">
+const CountdownItem = ({ value, label, isCard }) => (
+  <div className={`countdown-item countdown-item${isCard ? '__card' : ''}`}>
     <div className="time">{value.toString().padStart(2, '0')}</div>
     <div className="label">{label}</div>
   </div>
 );
 
-const Countdown = ({ duration = 5000000 }) => {
+const Countdown = ({ duration, isCard = false }) => {
   const endTimeRef = useRef(Date.now() + duration);
   const [timeLeft, dispatch] = useReducer(
     countdownReducer,
     calculateTimeLeft(endTimeRef.current)
   );
+
+  useEffect(() => {
+    endTimeRef.current = Date.now() + duration;
+    dispatch({ type: 'RESET', endTime: endTimeRef.current });
+  }, [duration]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -52,9 +59,9 @@ const Countdown = ({ duration = 5000000 }) => {
         <div className="countdown-expired">Время вышло!</div>
       ) : (
         <>
-          <CountdownItem value={timeLeft.hours} label="Час" />
-          <CountdownItem value={timeLeft.minutes} label="Мин" />
-          <CountdownItem value={timeLeft.seconds} label="Сек" />
+          <CountdownItem isCard={isCard} value={timeLeft.hours} label="Час" />
+          <CountdownItem isCard={isCard} value={timeLeft.minutes} label="Мин" />
+          <CountdownItem isCard={isCard} value={timeLeft.seconds} label="Сек" />
         </>
       )}
     </div>

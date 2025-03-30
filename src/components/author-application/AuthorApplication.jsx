@@ -1,6 +1,5 @@
 import { useState } from "react";
 import './author-application.css';
-import authorApplicationImage from './../../images/img/author-application.png';
 import CustomButton from './../ui/CustomButton';
 const AuthorApplication = () => {
   const [telegram, setTelegram] = useState("");
@@ -29,7 +28,7 @@ const AuthorApplication = () => {
               то мы обязательно свяжемся с тобой и обговорим условия сотрудничества! <strong>Удачи!</strong>
             </p>
             <div className="author-application__images">
-              <img src={authorApplicationImage} alt="Иллюстрация" className="author-application__image" />
+              <img src={'images/img/author-application.png'} alt="Иллюстрация" className="author-application__image" />
             </div>
           </div>
           <form className="author-application__form" onSubmit={handleSubmit}>

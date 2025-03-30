@@ -5,16 +5,16 @@ import CustomButton from './../ui/CustomButton';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './new-stickers.css';
-import sliderTitleImg from './../../images/icons/fire.svg';
-import slideOneImgOne from './../../images/slider-content/Ghost-2.svg';
-import slideOneImgTwo from './../../images/slider-content/Ghost-1.svg';
-import slideOneImgThree from './../../images/slider-content/Parental Advisory 1.svg';
-import slideTwoImgOne from './../../images/slider-content/chrome is dead.svg';
-import slideTwoImgTwo from './../../images/slider-content/Infinity 8 1.svg';
-import slideThreeImgOne from './../../images/slider-content/IAMDESIGNER Circle 2 1.svg';
-import slideThreeImgTwo from './../../images/slider-content/Global 30.svg';
-import slideThreeImgThree from './../../images/slider-content/Frankenstein White 1.svg';
-import slideFourImgOne from './../../images/slider-content/New Wave Big White 1.svg';
+import sliderTitleImg from '/public/images/icons/fire.svg';
+import slideOneImgOne from '/public/images/slider-content/Ghost-2.svg';
+import slideOneImgTwo from '/public/images/slider-content/Ghost-1.svg';
+import slideOneImgThree from '/public/images/slider-content/Parental Advisory 1.svg';
+import slideTwoImgOne from '/public/images/slider-content/chrome is dead.svg';
+import slideTwoImgTwo from '/public/images/slider-content/Infinity 8 1.svg';
+import slideThreeImgOne from '/public/images/slider-content/IAMDESIGNER Circle 2 1.svg';
+import slideThreeImgTwo from '/public/images/slider-content/Global 30.svg';
+import slideThreeImgThree from '/public/images/slider-content/Frankenstein White 1.svg';
+import slideFourImgOne from '/public/images/slider-content/New Wave Big White 1.svg';
 
 const NewStickers = () => {
   const [checked, setChecked] = useState(false);
@@ -39,8 +39,6 @@ const NewStickers = () => {
             spaceBetween={50}
             slidesPerView={1}
             pagination={pagination}
-            // onSlideChange={() => console.log('slide change')}
-            // onSwiper={(swiper) => console.log(swiper)}
           >
             <SwiperSlide>
               <img src={slideOneImgOne} alt="sticker" />

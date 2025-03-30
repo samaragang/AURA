@@ -35,7 +35,7 @@
   margin-bottom: 90px;
 }
 
-.auction__image {
+.auction__image img {
   width: 460px;
   height: 460px;
 }
@@ -103,11 +103,8 @@
 }
 
 
-.bet__countdown,
-.label,
-.time {
+.bet__countdown {
   color: white;
-  font-size: 20px;
 }
 
 .bet__countdown {
@@ -134,10 +131,6 @@
   max-height: 121px;
   margin-top: -5px;
   grid-area: 1 / 2 / 3 / 3;
-}
-
-.time {
-  font-size: 48px;
 }
 
 .section__subtitle {

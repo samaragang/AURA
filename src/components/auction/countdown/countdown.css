@@ -1,13 +1,32 @@
 .countdown {
   display: flex;
-  column-gap: 26px;
 }
+
 .countdown-item {
+  width: 57px;
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 5px;
+  margin-right: 26px;
 }
+
+.label {
+  font-size: 20px;
+}
+
 .time {
-  width: 57px;
+  font-size: 48px;
+}
+
+.countdown-item__card {
+  flex-direction: row;
+  justify-content: space-around;
+  column-gap: 0;
+  margin-right: 0;
+}
+
+.countdown-item__card div {
+  font-size: 16px;
+  color: #95959D;
 }
